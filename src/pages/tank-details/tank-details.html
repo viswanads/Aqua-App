@@ -1,0 +1,240 @@
+<!--
+  Generated template for the TankPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<!-- <ion-header>
+  <ion-navbar>
+    <ion-title>Go to Tanks List</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  this is tank page
+</ion-content> -->
+
+<!-- <ion-header>
+  <ion-navbar no-border-bottom>
+    <ion-title>
+      Go to Tanks List
+    </ion-title>
+  </ion-navbar> -->
+  <ion-header>
+    <ion-navbar>
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+      <ion-title>Tanks</ion-title>
+    </ion-navbar>
+  
+  <ion-toolbar no-border-top>
+    <ion-segment [(ngModel)]="tabValue">
+      <ion-segment-button value="income">
+        Income
+      </ion-segment-button>
+      <ion-segment-button value="expenses">
+        Expenses
+      </ion-segment-button>
+      <ion-segment-button value="account">
+        Account
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div [ngSwitch]="tabValue">
+    <ion-list *ngSwitchCase="'income'">
+      <div class="login-box">
+        <form (ngSubmit)="submitTankIncome()" #incomeForm="ngForm">
+          <ion-row>
+            <ion-col>
+              <ion-list inset>
+                <ion-item class="transparent">
+                    <ion-label>Tank Type</ion-label>
+                    <ion-select name="type" [(ngModel)]="tankIncome.tankType" required>
+                        <ion-option value="fish">Fish</ion-option>
+                        <ion-option value="prawns">Prawns</ion-option>
+                      <!-- <ion-option  *ngFor="let types of locations.types" value="{{loc.type}}">{{loc.city}}</ion-option> -->
+                    </ion-select>
+                </ion-item>
+                  
+                <ion-item class="transparent">
+                    <ion-label>Tank Name</ion-label>
+                    <ion-select name="name" [(ngModel)]="tankIncome.tankName" required>
+                        <ion-option value="1">Tank name 1</ion-option>
+                        <ion-option value="2">Tank name 2</ion-option>
+                        <ion-option value="3">Tank name 3</ion-option>
+                        <ion-option value="4">Tank name 4</ion-option>
+                        <ion-option value="5">Tank name 5</ion-option>
+                        <ion-option value="6">Tank name 6</ion-option>
+                        <!-- <ng-container *ngFor="let the of optionsList">
+                        <ion-option *ngIf="the.locationId == tankIncome.location_id" value="{{the.theatre_id}}">{{the.theatreName}}</ion-option>
+                      </ng-container> -->
+                      </ion-select>
+                </ion-item>
+                <ion-item class="transparent">
+                    <ion-label>Crop</ion-label>
+                    <ion-select name="crop" [(ngModel)]="tankIncome.crop" required>
+                        <ion-option value="1">crop name 1</ion-option>
+                        <ion-option value="2">crop name 2</ion-option>
+                        <ion-option value="3">crop name 3</ion-option>
+                        <ion-option value="4">crop name 4</ion-option>
+                        <ion-option value="5">crop name 5</ion-option>
+                        <ion-option value="6">crop name 6</ion-option>
+                      </ion-select>
+                </ion-item>
+  
+                <ion-item class="date">
+                    <ion-label>Date</ion-label>
+                    <ion-input name="date" placeholder="please select Date" type="text" onfocus="(this.type='date')" required [(ngModel)]="tankIncome.date"></ion-input>
+                </ion-item>
+  
+                <ion-item class="transparent">
+                    <ion-label>Income Type</ion-label>
+                    <ion-select name="crop" [(ngModel)]="tankIncome.incomeType" required>
+                        <ion-option value="1">Income name 1</ion-option>
+                        <ion-option value="2">Income name 2</ion-option>
+                        <ion-option value="3">Income name 3</ion-option>
+                        <ion-option value="4">Income name 4</ion-option>
+                        <ion-option value="5">Income name 5</ion-option>
+                        <ion-option value="6">Income name 6</ion-option>
+                      </ion-select>
+                </ion-item>
+                <ion-item class="transparent" style="margin-left: 7%;">
+                  <ion-label>Patttubadi</ion-label>
+                  <ion-input name="pattubadi" type="text" required [(ngModel)]="tankIncome.pattubadi"></ion-input>
+                </ion-item>
+                <ion-item class="transparent" style="margin-left: 7%;">
+                  <ion-label>Others</ion-label>
+                  <ion-input name="others" type="text" required [(ngModel)]="tankIncome.others"></ion-input>
+                </ion-item>
+                <ion-item class="transparent" style="margin-left: 7%;">
+                  <ion-label>Description</ion-label>
+                  <ion-input name="description" type="text" required [(ngModel)]="tankIncome.description"></ion-input>
+                </ion-item>
+                <ion-item class="transparent" style="margin-left: 7%;">
+                  <ion-label>Amount</ion-label>
+                  <ion-input name="amount" type="number" required [(ngModel)]="tankIncome.amount"></ion-input>
+                </ion-item>
+  
+              </ion-list>
+            </ion-col>
+          </ion-row>               
+  
+          <ion-row>
+            <ion-col class="signup-col">
+              <button ion-button class="submit-btn" full type="submit" [disabled]="!incomeForm.valid" color="danger">Submit</button>
+            </ion-col>
+          </ion-row>
+        </form>
+      </div>
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'expenses'">
+        <div class="login-box">
+            <form (ngSubmit)="submitTankExpenses()" #expensesForm="ngForm">
+              <ion-row>
+                <ion-col>
+                  <ion-list inset>
+                    <ion-item class="transparent">
+                        <ion-label>Tank Type</ion-label>
+                        <ion-select name="type" [(ngModel)]="tankExpenses.tankType" required>
+                            <ion-option value="fish">Fish</ion-option>
+                            <ion-option value="prawns">Prawns</ion-option>
+                          <!-- <ion-option  *ngFor="let types of locations.types" value="{{loc.type}}">{{loc.city}}</ion-option> -->
+                        </ion-select>
+                    </ion-item>
+                      
+                    <ion-item class="transparent">
+                        <ion-label>Tank Name</ion-label>
+                        <ion-select name="name" [(ngModel)]="tankExpenses.tankName" required>
+                            <ion-option value="1">Tank name 1</ion-option>
+                            <ion-option value="2">Tank name 2</ion-option>
+                            <ion-option value="3">Tank name 3</ion-option>
+                            <ion-option value="4">Tank name 4</ion-option>
+                            <ion-option value="5">Tank name 5</ion-option>
+                            <ion-option value="6">Tank name 6</ion-option>
+                            <!-- <ng-container *ngFor="let the of optionsList">
+                            <ion-option *ngIf="the.locationId == tankExpenses.location_id" value="{{the.theatre_id}}">{{the.theatreName}}</ion-option>
+                          </ng-container> -->
+                          </ion-select>
+                    </ion-item>
+                    <ion-item class="transparent">
+                        <ion-label>Crop</ion-label>
+                        <ion-select name="crop" [(ngModel)]="tankExpenses.crop" required>
+                            <ion-option value="1">crop name 1</ion-option>
+                            <ion-option value="2">crop name 2</ion-option>
+                            <ion-option value="3">crop name 3</ion-option>
+                            <ion-option value="4">crop name 4</ion-option>
+                            <ion-option value="5">crop name 5</ion-option>
+                            <ion-option value="6">crop name 6</ion-option>
+                          </ion-select>
+                    </ion-item>
+      
+                    <ion-item class="date">
+                        <ion-label>Date</ion-label>
+                        <ion-input name="date" placeholder="please select Date" type="text" onfocus="(this.type='date')" required [(ngModel)]="tankExpenses.date"></ion-input>
+                    </ion-item>
+      
+                    <ion-item class="transparent">
+                        <ion-label>Expenses Department</ion-label>
+                        <ion-select name="crop" [(ngModel)]="tankIncome.incomeType" required>
+                            <ion-option value="1">Expenses name 1</ion-option>
+                            <ion-option value="2">Expenses name 2</ion-option>
+                            <ion-option value="3">Expenses name 3</ion-option>
+                            <ion-option value="4">Expenses name 4</ion-option>
+                            <ion-option value="5">Expenses name 5</ion-option>
+                            <ion-option value="6">Expenses name 6</ion-option>
+                          </ion-select>
+                    </ion-item>
+                    <ion-item class="transparent" style="margin-left: 7%; color:red">
+                      <ion-label>Maintenance Expenses</ion-label>
+                    </ion-item>
+                    <ion-item class="transparent" style="margin-left: 7%; color:red">
+                      <ion-label>Infrastructure Expenses</ion-label>
+                    </ion-item>
+      
+                  </ion-list>
+                </ion-col>
+              </ion-row>               
+      
+              <ion-row>
+                <ion-col class="signup-col">
+                  <button ion-button class="submit-btn" full type="submit" [disabled]="!expensesForm.valid" color="danger">Submit</button>
+                </ion-col>
+              </ion-row>
+            </form>
+          </div>
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'account'">
+      <ion-item>
+        <ion-thumbnail item-start>
+          <img src="assets/img/thumbnail-duckling-1.jpg">
+        </ion-thumbnail>
+        <h2>Daffy</h2>
+      </ion-item>
+      <ion-item>
+        <ion-thumbnail item-start>
+          <img src="assets/img/thumbnail-duckling-2.jpg">
+        </ion-thumbnail>
+        <h2>Huey</h2>
+      </ion-item>
+      <ion-item>
+        <ion-thumbnail item-start>
+          <img src="assets/img/thumbnail-duckling-3.jpg">
+        </ion-thumbnail>
+        <h2>Dewey</h2>
+      </ion-item>
+      <ion-item>
+        <ion-thumbnail item-start>
+          <img src="assets/img/thumbnail-duckling-4.jpg">
+        </ion-thumbnail>
+        <h2>Louie</h2>
+      </ion-item>
+    </ion-list>
+  </div>
+</ion-content>

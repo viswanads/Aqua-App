@@ -1,0 +1,62 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Go to Login
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content  class="register-page" padding>
+  <ion-list class="empty-space"></ion-list>
+<div class="register-form">
+  <form #registerForm="ngForm" (ngSubmit)="register()" autocomplete="off">
+    <ion-row>
+      <ion-col>
+        <ion-list inset>
+          <ion-item class="transparent">
+            <ion-label floating>Name : </ion-label>
+            <ion-input class="inputItems" name="name" type="text" required [(ngModel)]="registerData.name" #name></ion-input>
+          </ion-item>
+          <ion-item class="transparent">
+            <ion-label floating>Mobile Number : </ion-label>
+            <ion-input class="inputItems" name="mobile" type="number" pattern="[0-9]*" required [(ngModel)]="registerData.mobile" #mobile></ion-input>
+          </ion-item>
+          <ion-item class="transparent">
+            <ion-label floating>Password : </ion-label>
+            <ion-input class="inputItems" name="password" type="text" required [(ngModel)]="registerData.password" #password></ion-input>
+          </ion-item>
+          <ion-item class="transparent">
+            <ion-label floating>Age : </ion-label>
+            <ion-input class="inputItems" name="age" type="number" pattern="[0-9]*" required [(ngModel)]="registerData.age" #age></ion-input>
+          </ion-item>
+          <ion-item class="transparent">
+            <ion-label floating>Address : </ion-label>
+            <ion-textarea class="inputItems" name="address" type="text" required [(ngModel)]="registerData.address" #address></ion-textarea>
+          </ion-item>
+          <!-- <ion-item class="transparent">
+            <ion-label floating>Password : </ion-label>
+            <ion-input class="inputItems" type="text" name="passwordShow" required [(ngModel)]="registerData.password" *ngIf="passwordCheckbox"></ion-input>
+            <ion-input class="inputItems" type="password" name="passwordHide" required [(ngModel)]="registerData.password" *ngIf="!passwordCheckbox"></ion-input>
+          </ion-item> -->
+          <!-- <ion-item class="transparent">
+              <ion-label for="checkbox" *ngIf="!passwordCheckbox" class="inputItems">show password</ion-label>
+              <ion-label for="checkbox" *ngIf="passwordCheckbox" class="inputItems">hide password</ion-label>
+              <ion-checkbox name="showPassword" id="checkbox" [(ngModel)]="passwordCheckbox"></ion-checkbox>
+            </ion-item> -->
+        </ion-list>
+      </ion-col>
+    </ion-row>
+    
+    <ion-row>
+      <ion-col>
+        <div *ngIf="error" class="alert alert-danger">{{error}}</div>
+        <button ion-button class="submit-btn" full type="submit" [disabled]="!registerForm.form.valid" color="secondary" round>register
+        </button>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="GotoLogin" (click)='goToLogin()' >
+        <p><b>Go to Login</b></p>
+    </ion-row>
+  </form>
+</div>
+</ion-content>
