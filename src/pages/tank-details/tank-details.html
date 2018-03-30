@@ -103,19 +103,19 @@
                         <ion-option value="6">Income name 6</ion-option>
                       </ion-select>
                 </ion-item>
-                <ion-item class="transparent" style="margin-left: 7%;">
+                <ion-item class="transparent" style="margin-left: 5%;">
                   <ion-label>Patttubadi</ion-label>
                   <ion-input name="pattubadi" type="text" required [(ngModel)]="tankIncome.pattubadi"></ion-input>
                 </ion-item>
-                <ion-item class="transparent" style="margin-left: 7%;">
+                <ion-item class="transparent" style="margin-left: 5%;">
                   <ion-label>Others</ion-label>
                   <ion-input name="others" type="text" required [(ngModel)]="tankIncome.others"></ion-input>
                 </ion-item>
-                <ion-item class="transparent" style="margin-left: 7%;">
+                <ion-item class="transparent" style="margin-left: 5%;">
                   <ion-label>Description</ion-label>
                   <ion-input name="description" type="text" required [(ngModel)]="tankIncome.description"></ion-input>
                 </ion-item>
-                <ion-item class="transparent" style="margin-left: 7%;">
+                <ion-item class="transparent" style="margin-left: 5%;">
                   <ion-label>Amount</ion-label>
                   <ion-input name="amount" type="number" required [(ngModel)]="tankIncome.amount"></ion-input>
                 </ion-item>
@@ -190,7 +190,7 @@
                             <ion-option value="6">Expenses name 6</ion-option>
                           </ion-select>
                     </ion-item>
-                    <ion-item class="transparent" style="margin-left: 7%; color:red">
+                    <ion-item class="transparent" style="margin-left: 7%; color:red" (click)="maintenanceExpenses()">
                       <ion-label>Maintenance Expenses</ion-label>
                     </ion-item>
                     <ion-item class="transparent" style="margin-left: 7%; color:red">

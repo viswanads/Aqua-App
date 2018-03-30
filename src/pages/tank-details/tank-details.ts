@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, AlertController, ToastController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController, ToastController,ModalController } from 'ionic-angular';
 
 /**
  * Generated class for the TankDetailsPage page.
@@ -15,39 +15,97 @@ import { IonicPage, NavController, NavParams, AlertController, ToastController }
 })
 export class TankDetailsPage {
   tankId:number;
-  tabValue = "income";
+  tabValue = "expenses";
   tankIncome = {};
   tankExpenses = {};
-  constructor(public navCtrl: NavController, public navParams: NavParams, private alertCtrl: AlertController, private toastCtrl: ToastController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private alertCtrl: AlertController, private toastCtrl: ToastController,public modalCtrl: ModalController) {
     this.tankId = navParams.get('tankId');
   }
   ionViewDidLoad() {
-    this.getEarthquakes(this.tankId);
+    this.dataParams(this.tankId);
   }
   submitTankIncome(){
     console.log(this.tankIncome);
   }
-  getEarthquakes(tankId){
+  dataParams(tankId){
     console.log('tankId',tankId);
   }
-  changePassword() {
+  submitTankExpenses(){
+    console.log(this.tankExpenses);
+  }
+  maintenanceExpenses() {
     let alert = this.alertCtrl.create({
-      title: 'Change Password',
+      title: 'Maintenance Expenses',
       inputs: [
         {
-          name: 'oldPassword',
-          type: 'text',
-          placeholder: 'Old Password'
+          name: 'seeds',
+          type: 'number',
+          placeholder: 'Seeds'
         },
         {
-          name: 'newPassword',
-          type: 'text',
-          placeholder: 'New Password'
+          name: 'lease',
+          type: 'number',
+          placeholder: 'Lease'
         },
         {
-          name: 'confPassword',
-          type: 'text',
-          placeholder: 'confirm Password'
+          name: 'current',
+          type: 'number',
+          placeholder: 'Current'
+        },
+        {
+          name: 'Diesel',
+          type: 'number',
+          placeholder: 'diesel'
+        },
+        {
+          name: 'fanSet',
+          type: 'number',
+          placeholder: 'Fan Set'
+        },
+        {
+          name: 'feed',
+          type: 'number',
+          placeholder: 'Feed'
+        },
+        {
+          name: 'food',
+          type: 'number',
+          placeholder: 'Food'
+        },
+        {
+          name: 'generator',
+          type: 'number',
+          placeholder: 'Generator'
+        },
+        {
+          name: 'labour',
+          type: 'number',
+          placeholder: 'Labour'
+        },
+        {
+          name: 'maintenance',
+          type: 'number',
+          placeholder: 'Maintenance'
+        },
+        {
+          name: 'medicines',
+          type: 'number',
+          placeholder: 'Medicines'
+        },
+        {
+          name: 'salaries',
+          type: 'number',
+          placeholder: 'Salaries'
+        },
+        {
+          name: 'transport',
+          type: 'number',
+          placeholder: 'Transport'
+        },
+        {
+          name: 'others',
+          type: 'number',
+          placeholder: 'Other Amount'
         }
       ],
       buttons: [
